@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	  
+	  <button v-on:click="changeClassName1">タグ１</button>
+	  <a v-bind:class="customClassName1">コンテンツ１</a>
+	  <button v-on:click="changeClassName2">タグ２</button>
+	  <a v-bind:class="customClassName2">コンテンツ２</a>
+	</div>
+	<script>
+	  const vm = new Vue({
+		el: '#app',
+		data(){
+		  return {
+			customClassName1: null,
+			customClassName2: null,
+		  }
+		},
+		methods: {
+		  changeClassName1:function(){
+			this.customClassName1 = 'bigFont';
+		  }
+		  changeClassName2:function(){
+			this.customClassName2 = 'bigFont';
+		  }
+		}
+	
+	  });
+	</script>
+	<style>
+	  .bigFont{
+		font-size: 200px;
+	  }
+	</style>
+  </body>
+</html>

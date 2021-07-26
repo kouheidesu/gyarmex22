@@ -10,33 +10,29 @@
 
 <body>
   <div id="app">
-    <sample-component>
+	  <a v-bind:style="changeStyle">タブ１</a>  
+	   <button v-on:click="counter">スタイル変更</button>
       <div slot="content1">
         <ul>
-          <li>リスト1</li>
-          <li>リスト2</li>
-          <li>リスト3</li>
+          <li>タブ１</li>
+          <li>タブ２</li>
+          <li>タブ３</li>
         </ul>
       </div>
-      <div slot="content2">
-        <button>ボタン１</button>
-      </div>
-    </sample-component>
-  </div>
-  <script>
-    Vue.component('sample-component', {
-      template: `
-        <div>
-          <header>ヘッダー</header>
-          <slot name="content1">デフォルトコンテンツ1</slot>
-          <slot name="content2">デフォルトコンテンツ2</slot>
-          <footer>フッター</footer>
-        </div>
-      `,
-    })
-    new Vue({
-      el: '#app',
-    })
-  </script>
+  <style>
+	  ul{
+		  font-size:20px;
+		  display:flex;
+		  text-align:center;
+		  list-style:none;
+		  cursor: pointer;
+	  }
+	  li{
+		border-top:1px solid #000;
+		  border-left:1px solid #000;
+		  border-right:1px solid #000;
+		  padding:10px 10px;
+	  }
+  </style>
 </body>
 </html>
