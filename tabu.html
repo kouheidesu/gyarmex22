@@ -8,10 +8,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-<div id="app">
+	
 	<div class="tab">
 		<ul class="tab-menu">
-			<li class="tab-menu__item active">
+			<li class="tab-menu__item active"></li>
 				<a v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">タブ１</a>
 			</li>
 			<li class="tab-menu__item">
@@ -30,10 +30,9 @@
 			</div>
 			<div class="tab-content__item">
 				<a v-else-if="isActive==='3' "class="tab-content__item">コンテンツ3</a>
-			</div>
+				</div>
 		</div>
 	</div>
-</div>
 
 
 
@@ -43,7 +42,7 @@
 	<script>
 	  const vm = new Vue({
 		el: '#app',
-		data:{
+		data(){
 			  isActive:'1'
 		},	
 		methods: {
@@ -103,3 +102,4 @@ li{
 	</style>
   </body>
 </html>
+s

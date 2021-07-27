@@ -7,32 +7,113 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
-
 <body>
-  <div id="app">
-	  <a v-bind:style="changeStyle">タブ１</a>  
-	   <button v-on:click="counter">スタイル変更</button>
-      <div slot="content1">
-        <ul>
-          <li>タブ１</li>
-          <li>タブ２</li>
-          <li>タブ３</li>
-        </ul>
-      </div>
-  <style>
-	  ul{
-		  font-size:20px;
-		  display:flex;
-		  text-align:center;
-		  list-style:none;
-		  cursor: pointer;
-	  }
-	  li{
-		border-top:1px solid #000;
-		  border-left:1px solid #000;
-		  border-right:1px solid #000;
-		  padding:10px 10px;
-	  }
-  </style>
-</body>
+	
+<div class="tab">
+	<ul class="tab-menu">
+		<li class="tab-menu__item active">
+			<button v-on:click="changeClassName1" class="btn">タグ１</button>
+		</li>
+		<li class="tab-menu__item">
+			<button v-on:click="changeClassName2" class="btn">タグ２</button>
+		</li>
+		<li class="tab-menu__item">
+			<button v-on:click="changeClassName3" class="btn">タグ3</button>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-content__item show">
+			<a v-bind:class="customClassName1">コンテンツ１</a>
+		</div>
+		<div class="tab-content__item">
+			<a v-bind:class="customClassName2">コンテンツ２</a>
+		</div>
+		<div class="tab-content__item">
+			<a v-bind:class="customClassName3">コンテンツ3</a>
+		</div>
+	</div>
+</div>
+
+
+
+
+	  
+	</div>
+	<script>
+	  const vm = new Vue({
+		el: '#app',
+		data(){
+		  return {
+			  isActive:'1'
+			customClassName1: null,
+			customClassName2: null,
+			customClassName3: null,
+		  }
+		},
+		
+		methods: {
+		  changeClassName1(){
+			this.customClassName1 = 'bigFont';
+		  },
+		  changeClassName2(){
+			this.customClassName2 = 'bigFont';
+		  },
+		  changeClassName3(){
+			this.customClassName3 = 'bigFont';
+		  },
+		}
+	  });
+	</script>
+	<style>
+　　
+.btn{
+	background-color: blue;
+	width: 300px;
+	height: 500px;
+}
+
+ul{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+
+	 .tab {
+  width: 500px;
+}
+.tab-menu {
+  display: flex;
+}
+.tab-menu__item {
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  list-style: none;
+  width: 100px;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.tab-menu__item:not(:first-child) {
+  border-left: none;
+}
+.tab-menu__item.active {
+  background: #000;
+  color: white;
+}
+.tab-content {
+  height: 200px;
+  border: 1px solid #000;
+}
+.tab-content__item {
+  display: none;
+  font-size: 40px;
+}
+.tab-content__item.show {
+  display: block;
+}
+	</style>
+  </body>
 </html>

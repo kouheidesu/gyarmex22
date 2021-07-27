@@ -10,10 +10,12 @@
 <body>
 	<div id="app">
 	  
-	  <button v-on:click="changeClassName1">タグ１</button>
-	  <a v-bind:class="customClassName1">コンテンツ１</a>
+	  <button v-on:click="changeClassName1" class="btn">タグ１</button>
 	  <button v-on:click="changeClassName2">タグ２</button>
+	  <button v-on:click="changeClassName3">タグ3</button>
+	  <a v-bind:class="customClassName1">コンテンツ１</a>
 	  <a v-bind:class="customClassName2">コンテンツ２</a>
+	  <a v-bind:class="customClassName3">コンテンツ3</a>
 	</div>
 	<script>
 	  const vm = new Vue({
@@ -22,27 +24,37 @@
 		  return {
 			customClassName1: null,
 			customClassName2: null,
+			customClassName3: null,
 		  }
 		},
 		
 		methods: {
+		
 		  changeClassName1(){
 			this.customClassName1 = 'bigFont';
-		  }
-		},
-		methods: {
+		  },
 		  changeClassName2(){
 			this.customClassName2 = 'bigFont';
-		  }
-		},
-		  
-	
+		  },
+		  changeClassName3(){
+			this.customClassName3 = 'bigFont';
+		  },
+		}
 	  });
 	</script>
 	<style>
 	  .bigFont{
-		font-size: 200px;
+		font-size: 40px;
 	  }
+
+.btn{
+	
+	background-color: blue;
+	
+}
+	  
+
+	  
 	</style>
   </body>
 </html>
