@@ -11,33 +11,17 @@
 <div id="app">
 	<div class="tab">
 		<ul class="tab-menu">
-			<li class="tab-menu__item">
-				<a v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">タブ１</a>
-	            </li>
-				<li class="tab-menu__item">
-				<a v-on:click="change('2')" v-bind:class="{'active': isActive === '2'}">タブ２</a>
-			</li>
-			<li class="tab-menu__item">
-				<a v-on:click="change('3')" v-bind:class="{'active': isActive === '3'}">タブ3</a>
-			</li>
+				<li v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">タブ１</li>
+				<li v-on:click="change('2')" v-bind:class="{'active': isActive === '2'}">タブ２</li>
+				<li v-on:click="change('3')" v-bind:class="{'active': isActive === '3'}">タブ3</li>
 		</ul>
 		<div class="tab-content">
-		
 				<li v-if="isActive==='1' ">コンテンツ１</li>
-		
 				<li v-else-if="isActive==='2' ">コンテンツ２</li>
-		
 				<li v-else-if="isActive==='3' ">コンテンツ3</li>
-			
 		</div>
 	</div>
 </div>
-
-
-
-
-	  
-	
 	<script>
 	  const vm = new Vue({
 		el: '#app',
@@ -70,7 +54,8 @@ li{
 .tab-menu {
   display: flex;
 }
-.tab-menu__item {
+.tab-menu li,
+.tab-menu label{
   text-align: center;
   padding: 10px 0;
   cursor: pointer;
@@ -84,8 +69,8 @@ li{
   border-left: none;
 }
 
-li.tab-menu__item a.active,
-li.tab-menu__item:checked+label
+.tab-menu .active,
+.tab-menu:checked+label
 {
   background: #000;
   color: white;
