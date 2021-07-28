@@ -11,7 +11,7 @@
 <div id="app">
 	<div class="tab">
 		<ul class="tab-menu">
-			<li class="tab-menu__item active">
+			<li class="tab-menu__item">
 				<a v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">タブ１</a>
 	            </li>
 				<li class="tab-menu__item">
@@ -83,7 +83,10 @@ li{
 .tab-menu__item:not(:first-child) {
   border-left: none;
 }
-.tab-menu__item.active {
+
+li.tab-menu__item a.active,
+li.tab-menu__item:checked+label
+{
   background: #000;
   color: white;
 }
