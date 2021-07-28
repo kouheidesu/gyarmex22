@@ -8,28 +8,29 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-	
-<div class="tab">
-	<ul class="tab-menu">
-		<li class="tab-menu__item active">
-			<button v-on:click="changeClassName1" class="btn">タグ１</button>
-		</li>
-		<li class="tab-menu__item">
-			<button v-on:click="changeClassName2" class="btn">タグ２</button>
-		</li>
-		<li class="tab-menu__item">
-			<button v-on:click="changeClassName3" class="btn">タグ3</button>
-		</li>
-	</ul>
-	<div class="tab-content">
-		<div class="tab-content__item show">
-			<a v-bind:class="customClassName1">コンテンツ１</a>
-		</div>
-		<div class="tab-content__item">
-			<a v-bind:class="customClassName2">コンテンツ２</a>
-		</div>
-		<div class="tab-content__item">
-			<a v-bind:class="customClassName3">コンテンツ3</a>
+<div id="app">
+	<div class="tab">
+		<ul class="tab-menu">
+			<li class="tab-menu__item active">
+				<a v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">タブ１</a>
+			</li>
+			<li class="tab-menu__item">
+				<a v-on:cilck="change('2')" v-bind:class="{'active': isActive === '2'}">タブ２</a>
+			</li>
+			<li class="tab-menu__item">
+				<a v-on:click="change('3')" v-bind:class="{'active': isActive === '3'}">タブ3</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-content__item show">
+				<li v-if="isActive==='1' ">コンテンツ１</li>
+			</div>
+			<div class="tab-content__item">
+				<li v-else-if="isActive==='2' ">コンテンツ２</li>
+			</div>
+			<div class="tab-content__item">
+				<li v-else-if="isActive==='3' ">コンテンツ3</li>
+			</div>
 		</div>
 	</div>
 </div>
@@ -38,40 +39,26 @@
 
 
 	  
-	</div>
+	
 	<script>
 	  const vm = new Vue({
 		el: '#app',
-		data(){
-		  return {
+		data:{
 			  isActive:'1'
-			customClassName1: null,
-			customClassName2: null,
-			customClassName3: null,
-		  }
-		},
-		
+		},	
 		methods: {
-		  changeClassName1(){
-			this.customClassName1 = 'bigFont';
-		  },
-		  changeClassName2(){
-			this.customClassName2 = 'bigFont';
-		  },
-		  changeClassName3(){
-			this.customClassName3 = 'bigFont';
-		  },
+		  change:function(num){
+			  this.isActive=num
+		  }
 		}
-	  });
+	  })
 	</script>
 	<style>
-　　
-.btn{
-	background-color: blue;
-	width: 300px;
-	height: 500px;
+　
+div{
+	margin:0;
+	padding: 0;
 }
-
 ul{
 	margin:0;
 	padding: 0;
@@ -79,7 +66,6 @@ ul{
 li{
 	list-style: none;
 }
-
 	 .tab {
   width: 500px;
 }

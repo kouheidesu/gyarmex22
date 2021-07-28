@@ -13,24 +13,22 @@
 		<ul class="tab-menu">
 			<li class="tab-menu__item active">
 				<a v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">タブ１</a>
-			</li>
-			<li class="tab-menu__item">
-				<a v-on:cilck="change('2')" v-bind:class="{'active': isActive === '2'}">タブ２</a>
+	            </li>
+				<li class="tab-menu__item">
+				<a v-on:click="change('2')" v-bind:class="{'active': isActive === '2'}">タブ２</a>
 			</li>
 			<li class="tab-menu__item">
 				<a v-on:click="change('3')" v-bind:class="{'active': isActive === '3'}">タブ3</a>
 			</li>
 		</ul>
 		<div class="tab-content">
-			<div class="tab-content__item show">
-				<a v-if="isActive==='1' "class="tab-content__item show">コンテンツ１</a>
-			</div>
-			<div class="tab-content__item">
-				<a v-else-if="isActive==='2' "class="tab-content__item">コンテンツ２</a>
-			</div>
-			<div class="tab-content__item">
-				<a v-else-if="isActive==='3' "class="tab-content__item">コンテンツ3</a>
-			</div>
+		
+				<li v-if="isActive==='1' ">コンテンツ１</li>
+		
+				<li v-else-if="isActive==='2' ">コンテンツ２</li>
+		
+				<li v-else-if="isActive==='3' ">コンテンツ3</li>
+			
 		</div>
 	</div>
 </div>
@@ -99,6 +97,9 @@ li{
 }
 .tab-content__item.show {
   display: block;
+}
+.tab-content li{
+	font-size:40px;
 }
 	</style>
   </body>
